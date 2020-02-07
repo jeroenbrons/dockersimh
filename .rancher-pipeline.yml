@@ -1,0 +1,9 @@
+stages:
+- name: compile
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile-pdpbsd
+      buildContext: .
+      tag: pdpbsd
+timeout: 60
+notification: {}
