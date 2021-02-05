@@ -9,8 +9,14 @@ jobs:
      - run: |
          echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
 
-     # build the application image
+     # build the SIMH image
      - run: docker build -t idiotoflinux/dockersimh:latest .
 
-     # deploy the image
+     # push the SIMH the image
      - run: docker push idiotoflinux/dockersimh:latest
+
+     # build the VDE image
+     - run: docker build -t idiotoflinux/simhvde:latest .
+
+     # push the VDE image
+     - run: docker push idiotoflinux/simhvde:latest
